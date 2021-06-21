@@ -7,12 +7,12 @@ const menuOpts = [
         name: 'option',
         message: 'Select an option',
         choices: [
-            { value:'1', name:`${'1.'.green} New task` },
-            { value:'2', name:`${'2.'.green} Show all` },
-            { value:'3', name:`${'3.'.green} Show completed` },
-            { value:'4', name:`${'4.'.green} Show pending` },
-            { value:'5', name:`${'5.'.green} Complete task(s)` },
-            { value:'6', name:`${'6.'.green} Delete task` },
+            { value:'1', name:`${'1.'.green} New note` },
+            { value:'2', name:`${'2.'.green} Notes` },
+            { value:'3', name:`${'3.'.green} Completed` },
+            { value:'4', name:`${'4.'.green} Pending` },
+            { value:'5', name:`${'5.'.green} Complete note(s)` },
+            { value:'6', name:`${'6.'.green} Delete note(s)` },
             { value:'0', name:`${'0.'.green} Go out` }
         ]
     }
@@ -39,7 +39,7 @@ const pause = async () => {
 }
 
 const addNote = async ( message ) => {
-    const taskOptions = [
+    const noteOpts = [
         {
             type: 'input',
             name: 'note',
@@ -53,7 +53,7 @@ const addNote = async ( message ) => {
         }
     ];
 
-    const { note } = await inquirer.prompt(taskOptions);
+    const { note } = await inquirer.prompt(noteOpts);
     return note;
 }
 
@@ -94,7 +94,7 @@ const completeNotes = async ( list ) => {
         )
     });
 
-    const { indexes } = await inquirer.prompt(completeOpts);
+    const { indexes } = await inquirer.prompt( completeOpts );
     return indexes;
 }
 
